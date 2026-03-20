@@ -1,5 +1,6 @@
 package org.example
 
+import funcions.eliminarEstudiante
 import funcions.menu
 import funcions.mostrarLista
 import funcions.pedirNombre
@@ -23,7 +24,13 @@ fun main() {
                 nombre = readln()
                 pedirNombre(nombre, listaDeEstudiantes)
             }
+
+            3 -> {
+                println("Puedes introducir el nombre del estudiante para eliminar:")
+                nombre = readln()
+                eliminarEstudiante(nombre, listaDeEstudiantes)
+            }
         }
-    } while (opcion != 3)
+    } while (opcion != 4)
 
 }
