@@ -1,5 +1,6 @@
 package org.example
 
+import funcions.editarEstudiante
 import funcions.eliminarEstudiante
 import funcions.menu
 import funcions.mostrarLista
@@ -30,7 +31,13 @@ fun main() {
                 nombre = readln()
                 eliminarEstudiante(nombre, listaDeEstudiantes)
             }
+
+            4 -> {
+                println("Introduce el nuevo nombre del Estudiante:")
+                nombre = readln()
+                editarEstudiante(nombre, listaDeEstudiantes)
+            }
         }
-    } while (opcion != 4)
+    } while (opcion != 5)
 
 }

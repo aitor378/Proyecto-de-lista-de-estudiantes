@@ -23,7 +23,8 @@ fun menu() {
         ║  1. Mostrar estudiantes  ║
         ║  2. Añadir Estudiante    ║
         ║  3. Eliminar Estudiante  ║
-        ║  4. Salir                ║
+        ║  4. Editar Estudiante    ║
+        ║  5. Salir                ║
         ╚══════════════════════════╝
     """.trimIndent())
 }
@@ -32,6 +33,16 @@ fun eliminarEstudiante(nombre: String, lista: MutableList<String>) {
     if (lista.contains(nombre)) {
         lista.remove(nombre)
         println("El estudiante se elimino correctamente")
+    } else {
+        println("El estudiante no existe")
+    }
+}
+
+fun editarEstudiante(nombre: String, lista: MutableList<String>) {
+    val indice = lista.indexOf(nombre)
+    if (indice != -1) {
+        println("Introduce el nuevo nombre del Estudiante:")
+        lista[indice] = readln()
     } else {
         println("El estudiante no existe")
     }
