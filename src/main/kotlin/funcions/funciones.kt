@@ -26,17 +26,19 @@ fun mostrarLista(lista: MutableList<MutableList<String>>) {
 
 fun menu() {
     println("""
-        ╔══════════════════════════╗
-        ║   MENU DE ESTUDIANTES    ║
-        ╠══════════════════════════╣
-        ║  1. Mostrar estudiantes  ║
-        ║  2. Añadir Estudiante    ║
-        ║  3. Eliminar Estudiante  ║
-        ║  4. Editar Estudiante    ║
-        ║  5. Mayor asistido       ║
-        ║  6. Menor asistido       ║
-        ║  0. Salir                ║
-        ╚══════════════════════════╝
+        ╔══════════════════════════════╗
+        ║     MENU DE ESTUDIANTES      ║
+        ╠══════════════════════════════╣
+        ║  1. Mostrar estudiantes      ║
+        ║  2. Añadir Estudiante        ║
+        ║  3. Eliminar Estudiante      ║
+        ║  4. Editar Estudiante        ║
+        ║  5. Mayor asistido           ║
+        ║  6. Menor asistido           ║
+        ║  7. Porcentage de Asistencia ║
+        ║  8. Buscar alumno            ║
+        ║  0. Salir                    ║
+        ╚══════════════════════════════╝
     """.trimIndent())
 }
 
@@ -130,4 +132,35 @@ fun mayorAusente(lista: MutableList<MutableList<String>>) {
     }
 
     println("El estudiante con mayor ausencia es: $maxNombre con $maxContador dias")
+}
+
+fun porcentajeDeAsistencia(lista: MutableList<MutableList<String>>) {
+    for (fila in lista) {
+        var contador = 0
+        for (i in 1..5) {
+            if (fila[i] == "Presente") {
+                contador++
+            }
+        }
+        val porcentaje = (contador * 100) / 5
+        println("${fila[0].padEnd(10)} | $porcentaje%")
+    }
+}
+
+fun buscarAlumno(lista: MutableList<MutableList<String>>) {
+    println("Introduce el nombre del estudiante:")
+    val nombre = readln()
+
+    val indice = lista.indexOfFirst { it[0] == nombre}
+
+    if (indice != -1) {
+        println("Nombre     | Lunes     | Martes    | Miércoles | Jueves    | Viernes")
+        println("-".repeat(75))
+        for (columna in lista[indice]) {
+            print("${columna.padEnd(10)} |")
+        }
+        println()
+    } else {
+        println("El estudiante no existe")
+    }
 }

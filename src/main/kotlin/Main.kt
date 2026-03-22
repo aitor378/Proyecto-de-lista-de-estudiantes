@@ -38,6 +38,14 @@ fun main() {
             6 -> {
                 mayorAusente(tabla)
             }
+
+            7 -> {
+                porcentajeDeAsistencia(tabla)
+            }
+
+            8 -> {
+                buscarAlumno(tabla)
+            }
         }
     } while (opcion != 0)
 
