@@ -33,7 +33,9 @@ fun menu() {
         ║  2. Añadir Estudiante    ║
         ║  3. Eliminar Estudiante  ║
         ║  4. Editar Estudiante    ║
-        ║  5. Salir                ║
+        ║  5. Mayor asistido       ║
+        ║  6. Menor asistido       ║
+        ║  0. Salir                ║
         ╚══════════════════════════╝
     """.trimIndent())
 }
@@ -88,4 +90,44 @@ fun subMenu() {
         ║  5. Viernes                ║
         ╚════════════════════════════╝
     """.trimIndent())
+}
+
+fun mayorAsistencia(lista: MutableList<MutableList<String>>) {
+    var maxNombre: String = ""
+    var maxContador: Int = 0
+
+    for (fila in lista) {
+        var contador = 0
+        for (i in 1..5) {
+            if (fila[i] == "Presente") {
+                contador++
+            }
+        }
+        if (contador > maxContador) {
+            maxContador = contador
+            maxNombre = fila[0]
+        }
+    }
+
+    println("El estudiante con mayor asistencia es: $maxNombre con $maxContador dias")
+}
+
+fun mayorAusente(lista: MutableList<MutableList<String>>) {
+    var maxNombre: String = ""
+    var maxContador: Int = 0
+
+    for (fila in lista) {
+        var contador = 0
+        for (i in 1..5) {
+            if (fila[i] == "Ausente") {
+                contador++
+            }
+        }
+        if (contador > maxContador) {
+            maxContador = contador
+            maxNombre = fila[0]
+        }
+    }
+
+    println("El estudiante con mayor ausencia es: $maxNombre con $maxContador dias")
 }

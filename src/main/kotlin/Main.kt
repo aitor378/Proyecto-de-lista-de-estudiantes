@@ -1,17 +1,13 @@
 package org.example
 
-import funcions.editarEstudiante
-import funcions.eliminarEstudiante
-import funcions.menu
-import funcions.mostrarLista
-import funcions.pedirNombre
+import funcions.*
 
 fun main() {
     var opcion: Int
 
     val tabla = mutableListOf(
         mutableListOf("Smith",    "Presente", "Ausente",  "Presente", "Presente", "Ausente"),
-        mutableListOf("Juan",     "Ausente",  "Presente", "Presente", "Ausente",  "Presente"),
+        mutableListOf("Alonso",     "Ausente",  "Presente", "Presente", "Ausente",  "Presente"),
         mutableListOf("Fernando", "Presente", "Presente", "Ausente",  "Presente", "Presente")
     )
 
@@ -34,7 +30,15 @@ fun main() {
             4 -> {
                 editarEstudiante(tabla)
             }
+
+            5 -> {
+                mayorAsistencia(tabla)
+            }
+
+            6 -> {
+                mayorAusente(tabla)
+            }
         }
-    } while (opcion != 5)
+    } while (opcion != 0)
 
 }
