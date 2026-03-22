@@ -8,34 +8,31 @@ import funcions.pedirNombre
 
 fun main() {
     var opcion: Int
-    var nombre: String
-    val listaDeEstudiantes: MutableList<String>
-    listaDeEstudiantes = mutableListOf("Smith", "Juan", "Fernando")
+
+    val tabla = mutableListOf(
+        mutableListOf("Smith",    "Presente", "Ausente",  "Presente", "Presente", "Ausente"),
+        mutableListOf("Juan",     "Ausente",  "Presente", "Presente", "Ausente",  "Presente"),
+        mutableListOf("Fernando", "Presente", "Presente", "Ausente",  "Presente", "Presente")
+    )
 
     do {
         menu()
-        opcion = readLine()!!.toInt()
+        opcion = readln().toInt()
         when(opcion) {
             1 -> {
-                mostrarLista(listaDeEstudiantes)
+                mostrarLista(tabla)
             }
 
             2 -> {
-                println("Puedes introducir tu nombre:")
-                nombre = readln()
-                pedirNombre(nombre, listaDeEstudiantes)
+                pedirNombre(tabla)
             }
 
             3 -> {
-                println("Puedes introducir el nombre del estudiante para eliminar:")
-                nombre = readln()
-                eliminarEstudiante(nombre, listaDeEstudiantes)
+                eliminarEstudiante(tabla)
             }
 
             4 -> {
-                println("Introduce el nuevo nombre del Estudiante:")
-                nombre = readln()
-                editarEstudiante(nombre, listaDeEstudiantes)
+                editarEstudiante(tabla)
             }
         }
     } while (opcion != 5)
