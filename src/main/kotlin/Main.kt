@@ -1,50 +1,53 @@
-package org.example
-
 import funcions.*
+import model.*
 
 fun main() {
     var opcion: Int
 
-    val tabla = mutableListOf(
-        mutableListOf("Smith",    "Presente", "Ausente",  "Presente", "Presente", "Ausente"),
-        mutableListOf("Alonso",     "Ausente",  "Presente", "Presente", "Ausente",  "Presente"),
-        mutableListOf("Fernando", "Presente", "Presente", "Ausente",  "Presente", "Presente")
-    )
+    val alumno1 = Alumno("Smith",    "Johnson", 20, "1A", "12345678A")
+    val alumno2 = Alumno("Alonso", "Garcia", 19, "1A", "87654321B")
+    val alumno3 = Alumno("Fernando", "Lopez",   21, "1A", "11223344C")
+
+    val clase = Clase("1A", "Clase de matematicas")
+
+    clase.alumnos.add(alumno1)
+    clase.alumnos.add(alumno2)
+    clase.alumnos.add(alumno3)
 
     do {
         menu()
         opcion = readln().toInt()
         when(opcion) {
             1 -> {
-                mostrarLista(tabla)
+                mostrarLista(clase)
             }
 
             2 -> {
-                pedirNombre(tabla)
+                pedirAlumno(clase)
             }
 
             3 -> {
-                eliminarEstudiante(tabla)
+                eliminarEstudiante(clase)
             }
 
             4 -> {
-                editarEstudiante(tabla)
+                editarEstudiante(clase)
             }
 
             5 -> {
-                mayorAsistencia(tabla)
+                mayorAsistencia(clase)
             }
 
             6 -> {
-                mayorAusente(tabla)
+                mayorAusente(clase)
             }
 
             7 -> {
-                porcentajeDeAsistencia(tabla)
+                porcentajeDeAsistencia(clase)
             }
 
             8 -> {
-                buscarAlumno(tabla)
+                buscarAlumno(clase)
             }
         }
     } while (opcion != 0)
